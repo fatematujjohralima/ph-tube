@@ -32,17 +32,27 @@ const displayVideos = (videos) => {
   videos.forEach((video) => {
     const videoDiv = document.createElement("div");
     videoDiv.innerHTML=`
-    <div class="card bg-base-100 shadow-sm">
-  <figure>
-    <img
+      <div class="card bg-base-100 shadow-sm">
+  <figure class="relative">
+    <img class="w-full h-[200px] object-cover"
       src="${video.thumbnail}"
       alt="Shoes" />
+      <span class="absolute bottom-2 right-2 bg-black text-white text-sm px-2 py-1 rounded">3hours 36min 2sec</span>
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">${video.title}</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="py-5 flex gap-3 px-0">
+    <div class="profile">
+      <div class="avatar">
+  <div class="w-10 rounded-xl">
+    <img src="${video.authors[0].profile_picture}" />
+  </div>
+</div>
+    </div>
+    <div class="intro">
+      <h2 class=" text-lg font-semibold">Nature Window</h2>
+      <p class=" text-sm  text-gray-500 flex gap-1 ">${video.authors[0].profile_name} 
+        <img class="w-5 h-5" src="https://img.icons8.com/?size=48&id=FNbnqlDTjR45&format=gif&color=f7f7f7" alt="">
+      </p>
+      <p class=" text-sm  text-gray-500">${video.others.views} Views</p>
     </div>
   </div>
 </div>
